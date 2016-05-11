@@ -40,4 +40,29 @@ RSpec.describe PostsController, type: :controller do
       login_user
     end
   end
+
+  describe "GET #new" do
+    it "assigns a new post as @post and renders the new template" do
+
+      get :new
+
+      expect(assigns(:post)).to be_a_new(Post)
+      expect(response).to render_template("new")
+    end
+  end
+
+  describe "GET #edit" do
+    before do
+      get :edit, {id: a_post.id}
+    end
+
+    it "assigns a requested post as @post" do
+      expect(assigns(:post)).to eq(a_post)
+    end
+
+    it "renders the edit template" do
+      expect(response).to render_template("edit")
+    end
+  end
+
 end
