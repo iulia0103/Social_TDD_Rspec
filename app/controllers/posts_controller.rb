@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       redirect_to new_post_path, alert: "Something went wrong please try again"
     end
   end
-  
+
   def edit
     @post = Post.find(params[:id])
   end
